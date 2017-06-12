@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/lenaf/twitter-js/issues"
   },
-  "homepage": "https://github.com/lenaf/twitter-js#readme"
+  "homepage": "https://github.com/lenaf/twitter-js#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
 }
