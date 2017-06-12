@@ -1,0 +1,22 @@
+{
+  "name": "twitter-js",
+  "version": "1.0.0",
+  "description": "homemade twitter app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lenaf/twitter-js.git"
+  },
+  "keywords": [
+    "twitter"
+  ],
+  "author": "lena and vinaya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lenaf/twitter-js/issues"
+  },
+  "homepage": "https://github.com/lenaf/twitter-js#readme"
+}
