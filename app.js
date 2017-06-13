@@ -3,6 +3,12 @@ const app = express();
 const bodyParser = require('body-parser');
 const chalk = require('chalk');
 const nunjucks = require('nunjucks');
+const tweetBank = require('./tweetBank');
+const volleyball = require('volleyball');
+const morgan = require('morgan');
+const routes = require('./routes');
+
+app.use('/', routes);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -27,11 +33,13 @@ nunjucks.configure('views', {noCache: true}); // point nunjucks to the proper di
 
 //logging middleware
 
-app.use(function (req, res, next) {
-  console.log(res.statusCode);
-  console.log(green(req.method), yellow(req.originalUrl))
-  next()
-})
+// app.use(function (req, res, next) {
+//   console.log(res.statusCode);
+//   console.log(green(req.method), yellow(req.originalUrl))
+//   next()
+// })
+
+app.use(volleyball)
 
 // middleware chain
 app.use('/special/', function(req, res, next){
@@ -43,6 +51,20 @@ app.get('/', function(req, res){
     res.render('index.html', locals);
     // const people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
     // res.render( 'index', {title: 'Hall of Fame', people: people} );
+});
+
+//a different route
+
+const altLocals = {
+    title: 'An Alt Example',
+    people: [
+        {name: 'Cats'},
+        {name: 'Dogs'}
+    ]
+};
+
+app.get('/alt', function(req, res){
+    res.render('index.html', altLocals);
 });
 
 
